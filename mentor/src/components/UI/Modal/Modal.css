@@ -1,0 +1,48 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    background-color: #e1ded8;
+    width: 70%;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px black;
+    padding: 16px;
+    left: 15%;
+    top: 15%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+   
+}
+label{
+    font-weight: bold;
+    color: rgb(52 58 64 / 0.9);  
+    font-size: 20px;
+    
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+input{
+    width: 100%;
+    margin-left: 10px;
+    font-size: 15px;
+    border: 1px solid #9f9fa5;
+    border-radius: 5px;
+}
+.update-button{
+    background-color:#1b1f23cc;
+    border-radius: 5px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (min-width: 600px) {
+    .Modal {
+        width: 700px;
+        left: calc(50% - 250px);
+    }
+}

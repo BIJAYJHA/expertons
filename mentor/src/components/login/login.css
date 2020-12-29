@@ -1,0 +1,31 @@
+.login{
+    width: 500px;
+    padding: 15px;
+    font-size: 20px;
+}
+.input-div{
+    margin-top: 10px;
+}
+.label-for-inputs{
+    color: rgb(52 58 64 / 0.9);  
+}
+input{
+    height: 50px;
+}
+
+.login-button{
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    background: lightskyblue;
+    color: white;
+    position: relative;
+    height: 50px;
+}
+
+.login-button-div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
