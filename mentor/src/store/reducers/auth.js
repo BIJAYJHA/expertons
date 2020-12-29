@@ -17,7 +17,8 @@ const authStart=(state,action)=>{
 }
 
 export const authSuccess=(state,action)=>{
-   let userId=action['_id'];
+    console.log(" in auth success",action);
+   let userId=action.auth['_id'];
    return updateObject(state,{
         userId:userId
     })

@@ -15,8 +15,11 @@ export function * watchMentors(){
 }
 
 export function * watchAuth(){
-    yield takeLatest(actionTypes.AUTH_SIGNUP,checkAuth);
-    yield takeLatest(actionTypes.AUTH_LOGOUT,autghLogout);
+    yield all([
+     takeEvery(actionTypes.AUTH_SIGNUP,checkAuth),
+     takeEvery(actionTypes.AUTH_INITIATE_LOGOUT,autghLogout)
+    ]
+    )
 
 }
 

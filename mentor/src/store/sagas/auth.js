@@ -23,7 +23,7 @@ export function * checkAuth(action){
                
             }));
             console.log("response.data===>",responseData);
-            yield put(localStorage.setItem('userId',responseData.data._id))
+            yield localStorage.setItem('userId',responseData.data._id)
             yield put(actions.watchAuthSuccess(responseData.data))
 
         }
@@ -36,6 +36,7 @@ export function * checkAuth(action){
 }
 
 export function * authLogout(action){
+    console.log("in logout saga");
     yield call([localStorage,'removeItem'],"userId")
     yield put(actions.logoutSucced());
 }

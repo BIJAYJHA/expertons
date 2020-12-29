@@ -27,7 +27,7 @@ export class Auth extends Component{
     }
     componentDidUpdate(){
         console.log(this.props.userId,this.props.error);
-        if(this.props.userId){
+        if(localStorage.getItem('userId')){
             this.props.history.push('/home')
         }
     }
@@ -43,6 +43,9 @@ export class Auth extends Component{
         auth['isSignup']=this.state.signup;
        const getData= this.props.onWatchAuth(auth);
        console.log("getData===>",getData);
+       if(this.props.userId){
+        this.props.history.push('/home')
+    }
         
 
     }

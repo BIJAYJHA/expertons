@@ -32,9 +32,6 @@ export const watchAuthFail=(error)=>{
 }
 
 export const logout=()=>{
-    // localStorage.removeItem('token');
-    // localStorage.removeItem('expirationDate');
-    // localStorage.removeItem('userId');
     console.log("calling logout actions");
     return{
         type:actionsTypes.AUTH_INITIATE_LOGOUT
