@@ -18,13 +18,20 @@ export class Auth extends Component{
             login:true,
             signup:false,
             openModal:false,
+            error:false
         }
     }
 
     componentDidMount(){
         console.log(this.props);
     }
-    handleLogin=(email,name,password)=>{
+    componentDidUpdate(){
+        console.log(this.props.userId,this.props.error);
+        if(this.props.userId){
+            this.props.history.push('/home')
+        }
+    }
+    handleLogin=(email,password,name)=>{
         console.log("handling login...")
         console.log(name,email,password);
         let auth={};
@@ -36,9 +43,6 @@ export class Auth extends Component{
         auth['isSignup']=this.state.signup;
        const getData= this.props.onWatchAuth(auth);
        console.log("getData===>",getData);
-       if(this.props.userId){
-           this.props.history.push('/home');
-       }
         
 
     }
@@ -73,7 +77,7 @@ export class Auth extends Component{
             'color':'#343a40cc'
         }
         let useComponent=null;
-        if(this.props.error){
+        if(this.state.error){
          useComponent=<Error show={this.state.openModal} modalClosed={this.cancelModal}/>
         }
         return(
@@ -92,7 +96,7 @@ export class Auth extends Component{
                 </div>
             <div className="auth">
            
-          <Login isSignup={this.state.signup} buttonText={this.state.buttonText} handleLogin={(email,name,password)=>{this.handleLogin(email,name,password)}} />
+          <Login isSignup={this.state.signup} buttonText={this.state.buttonText} handleLogin={(email,password,name)=>{this.handleLogin(email,password,name)}} />
             {useComponent}
           </div>
             </div>

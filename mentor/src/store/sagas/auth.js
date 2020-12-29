@@ -9,7 +9,7 @@ export function * checkAuth(action){
     try{
         console.log(action);
         if(action.auth.isSignup){
-            const responseData= yield put(AxiosService.post(getUrl(routes.signupAdmin),{
+            const responseData= yield (AxiosService.post(getUrl(routes.signupAdmin),{
                 email:action.auth.email,
                 password:action.auth.password,
                 name:action.auth.name
@@ -17,11 +17,12 @@ export function * checkAuth(action){
             yield put(localStorage.setItem('userId',responseData.data._id))
             yield put(actions.watchAuthSuccess(responseData.data))
         }else{
-            const responseData= yield put(AxiosService.post(getUrl(routes.loginAdmin),{
+            const responseData= yield (AxiosService.post(getUrl(routes.loginAdmin),{
                 email:action.auth.email,
                 password:action.auth.password,
                
-            }))
+            }));
+            console.log("response.data===>",responseData);
             yield put(localStorage.setItem('userId',responseData.data._id))
             yield put(actions.watchAuthSuccess(responseData.data))
 

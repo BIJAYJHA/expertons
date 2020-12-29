@@ -23,6 +23,7 @@ class Error extends Component{
              transform:this.props.show ? 'translateY(0)':'translateY(-100vh)',
              opacity:this.props.show ? '1':'0'
          }}>
+             Something went wrong!!
              </div>
             </Auxiliary>
         )

@@ -14,11 +14,13 @@ const signup=async( req,res)=>{
 
 const login=async(req,res)=>{
     try{
+        console.log(req.body);
         const email=req.body.email;
         const password=req.body.password;
         const adminData= await adminModel.getOneAdmin(email,password);
         res.status(200).send({"message":"login is successfull","data":adminData});
     }catch(error){
+        console.log("error==>",error);
         res.status(400).send({"message":"something went wrong!!"});
     }
 }

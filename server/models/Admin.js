@@ -25,7 +25,7 @@ const saveAdminData=(adminData)=>{
     })
 }
 
-const getOneAdmin=(emai,password)=>{
+const getOneAdmin=(email,password)=>{
     return new Promise((resolve,reject)=>{
         Admin.findOne({"email":email, "password":password},{},(err,adminData)=>{
             if(err){
