@@ -37,7 +37,7 @@ class Modal extends Component{
             let subject=this.state.subject;
             subject=subject.split(",");
             const mentor=this.props.mentor;
-            mentor['subjects'].push([subject.pop()]);
+            mentor['subjects']=[subject];
             console.log("mentor===>",mentor);
            this.props.updateMentor(mentor)
 
